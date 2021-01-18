@@ -35,18 +35,6 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-offline',
-      options: {
-        precachePages: [
-          '/index/',
-          '/nosotros/',
-          '/tags/',
-          '/contacto/',
-          '/servicios/',
-          '/privacidad/',
-          '/portafolio/*',
-          '/blog/*',
-        ],
-      },
     },
     {
       resolve: 'gatsby-source-strapi',
