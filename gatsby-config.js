@@ -85,6 +85,7 @@ module.exports = {
         publisherId: 'AW-619175367',
       },
     },
+    'gatsby-plugin-offline',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
