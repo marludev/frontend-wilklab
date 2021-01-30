@@ -34,9 +34,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-offline',
-    },
-    {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: process.env.API_URL,
