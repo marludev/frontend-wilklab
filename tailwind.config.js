@@ -2,9 +2,9 @@
 module.exports = {
   purge: {
     content: [
-      './src/components/*/*/.{js,jsx}',
-      './src/pages/*/.{js,jsx}',
-      './src/templates/*/.{js,jsx}',
+      './src/components/**/*.{js,jsx}',
+      './src/pages/**/*.{js,jsx}',
+      './src/templates/**/*.{js,jsx}',
     ],
   },
   darkMode: false, // or 'media' or 'class'
