@@ -80,6 +80,7 @@ export const query = graphql`
         publicURL
         childImageSharp {
           fluid {
+            src
             ...GatsbyImageSharpFluid
           }
         }
@@ -149,60 +150,68 @@ const Articulo = ({ data }) => {
           </button>
         </div>
       )}
-
-      <ImageBackground
-        tag="div"
-        fluid={imageArticle.childImageSharp.fluid}
-        className="relative transform -translate-y-8 sm:-translate-y-32"
-      >
-        <div className="flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50">
-          <h1 className="w-full px-4 pb-4 text-3xl font-bold text-gray-100 md:text-4xl md:hidden">
-            {title}
-          </h1>
-        </div>
-      </ImageBackground>
-
-      <div className="container transform md:-translate-y-24">
-        <div className="flex flex-col-reverse text-gray-100 md:flex-row">
-          <div className="w-full transform md:-translate-y-40 md:w-4/12">
-            <CardMember
-              image={miembro.imageMember.childImageSharp.fluid}
-              position={miembro.position}
-              name={miembro.name}
-              color="border-dark"
+      <section>
+        <article itemScope itemType="http://schema.org/BlogPosting">
+          <ImageBackground
+            tag="div"
+            fluid={imageArticle.childImageSharp.fluid}
+            className="relative transform -translate-y-8 sm:-translate-y-32"
+          >
+            <meta
+              itemProp="image"
+              content={`https://wilklab.com/${imageArticle.childImageSharp.fluid.src}`}
             />
-            <div className="flex justify-center mb-4">
-              <span className="inline-block w-1/2 h-1 rounded bg-custom-primary" />
-            </div>
-            <div className="flex flex-wrap justify-center px-10">
-              {tags.map(tag => (
-                <Link
-                  className="p-2 m-2 border-2 rounded-lg border-custom-primary text-custom-primary"
-                  key={tag.tag}
-                  to={`/tags/${tag.tag}`}
-                >
-                  #{tag.tag}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className="w-full px-4 md:px-0 md:w-8/12">
-            <div className="flex flex-wrap">
-              <h1 className="hidden w-full pb-4 text-4xl font-bold md:block">
-                {title}
-              </h1>
-            </div>
-            <ContenidoArticulo>
-              <Markdown source={content} />
-            </ContenidoArticulo>
-          </div>
-        </div>
+            <div className="flex items-center justify-center w-full h-full bg-gray-800 bg-opacity-50" />
+          </ImageBackground>
 
-        <div className="px-4 my-20 md:px-0">
-          <CommentCount config={disqusConfig} placeholder={'...'} />
-          <Disqus config={disqusConfig} />
-        </div>
-      </div>
+          <div className="container transform md:-translate-y-24">
+            <div className="flex flex-col-reverse text-gray-100 md:flex-row">
+              <div className="w-full transform md:-translate-y-40 md:w-4/12">
+                <meta itemProp="author" content={miembro.name} />
+                <CardMember
+                  image={miembro.imageMember.childImageSharp.fluid}
+                  position={miembro.position}
+                  name={miembro.name}
+                  color="border-dark"
+                />
+                <meta itemProp="publisherName " content={miembro.name} />
+                <div className="flex justify-center mb-4">
+                  <span className="inline-block w-1/2 h-1 rounded bg-custom-primary" />
+                </div>
+                <div className="flex flex-wrap justify-center px-10">
+                  {tags.map(tag => (
+                    <Link
+                      className="p-2 m-2 border-2 rounded-lg border-custom-primary text-custom-primary"
+                      key={tag.tag}
+                      to={`/tags/${tag.tag}`}
+                    >
+                      #{tag.tag}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className="w-full px-4 md:px-0 md:w-8/12">
+                <div className="flex flex-wrap">
+                  <h1
+                    itemProp="headline"
+                    className="hidden w-full pb-4 text-4xl font-bold md:block"
+                  >
+                    {title}
+                  </h1>
+                </div>
+                <ContenidoArticulo>
+                  <Markdown source={content} />
+                </ContenidoArticulo>
+              </div>
+            </div>
+
+            <div className="px-4 my-20 md:px-0">
+              <CommentCount config={disqusConfig} placeholder={'...'} />
+              <Disqus config={disqusConfig} />
+            </div>
+          </div>
+        </article>
+      </section>
     </Layout>
   )
 }

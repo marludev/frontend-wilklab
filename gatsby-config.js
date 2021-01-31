@@ -31,6 +31,7 @@ module.exports = {
         theme_color: '#8DECFC',
         display: 'standalone',
         icon: 'src/images/w-3.png',
+        cache_busting_mode: 'none',
       },
     },
     {
@@ -85,7 +86,14 @@ module.exports = {
         publisherId: 'AW-619175367',
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/icon-path*'],
+        },
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',

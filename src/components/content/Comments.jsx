@@ -17,7 +17,7 @@ const Comments = () => {
           imageClient {
             childImageSharp {
               fluid {
-                src
+                ...GatsbyImageSharpFluid
               }
             }
           }
@@ -61,7 +61,7 @@ const Comment = ({ cliente }) => {
         data-aos="zoom-in-up"
         className="px-8 py-4 mt-24 rounded-lg shadow-lg md:w-5/12 lg:w-3/12 bg-custom-primary"
       >
-        <Link to={`/portafolio/${proyecto?.slug ? proyecto.slug : ''}`}>
+        <Link to={`/portafolio/${proyecto ? proyecto.slug : ''}`}>
           <div className="flex justify-center -mt-24 md:justify-end">
             <Img
               className="object-cover w-32 h-32 border-2 border-gray-900 rounded-full shadow-2xl"
