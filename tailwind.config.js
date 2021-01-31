@@ -2,7 +2,7 @@
 module.exports = {
   purge: {
     content: [
-      './src/components/*/.{js,jsx}',
+      './src/components/*/*/.{js,jsx}',
       './src/pages/*/.{js,jsx}',
       './src/templates/*/.{js,jsx}',
     ],
