@@ -1,6 +1,7 @@
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
-  purge: ['./src/**/*.js', './src/**/*.jsx'],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: false, // or 'media' or 'class'
   theme: {
     container: {
       center: true,

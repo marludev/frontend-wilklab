@@ -86,14 +86,14 @@ module.exports = {
         publisherId: 'AW-619175367',
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-offline',
-    //   options: {
-    //     workboxConfig: {
-    //       globPatterns: ['**/icon-path*'],
-    //     },
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-offline',
+      options: {
+        workboxConfig: {
+          globPatterns: ['**/icon-path*'],
+        },
+      },
+    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
